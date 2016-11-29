@@ -1,0 +1,159 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 清除样式 */
+body,dd,dl,form,h1,h2,h3,h4,h5,h6,input,ol,p,pre,td,textarea,th,ul,select{margin:0;padding:0;}
+li{list-style:none}
+a{text-decoration:none}
+a:hover{text-decoration:none}
+a{cursor:pointer}
+img{border:none; vertical-align:top;}
+textarea{overflow:auto;resize:none;}
+table{border-collapse:collapse;}
+*{word-break:break-all;}
+input,a,textarea{outline:none;}
+.clear{zoom:1}
+.clear:after{content:"";display:block;clear:both;}
+.fl{float:left}
+.fr{float:right}
+
+@font-face{
+	font-family: 		 'pingfang';
+	src:				 url('../font/PingFangMeadium.ttf');
+
+}
+
+.wrap {
+	width:   		     1200px;
+	background-color:    #FFFFFF;
+	margin-left: 		 auto;
+	margin-right: 		 auto;
+	}
+
+
+nav {
+}
+
+.nav_lia{
+	margin-top: 		 143px;
+	margin-left: 		 -9px;
+	margin-bottom: 		 66px;
+	cursor: 			 pointer;
+	}
+.nav_lia:hover{
+	background-image:    url(../image/点-点击.png);
+	background-repeat:   no-repeat;
+}
+.nav_li{
+	font-family: 		 pingfang;
+	font-size: 			 14px;
+	line-height: 		 30px;
+	letter-spacing: 	 2px;
+	color: 				 #808080;
+    cursor: 			 pointer;
+	}
+
+a:link{
+	color: 				 #808080;
+}
+a:visited{
+	color: 				 #808080;
+}
+a:hover{
+	color:               #000000;
+}
+a:active{
+	color: 				 #000000;
+}
+footer {
+	top: 		 		 922px;
+	position:            absolute;
+}
+
+p{
+	font-size: 			 14px;
+	font-family: 		 pingfang;
+	color: 				 #808080;
+	}
+
+span{
+	vertical-align: 	 middle;
+	}
+
+/* 轮播图 */
+
+* {
+		padding: 0px;
+		margin: 0px;
+	}
+	a {
+		text-decoration: none;
+	}
+	ul {
+		list-style: outside none none;
+	}
+
+.slider{
+		width: 			1000px;
+	  	margin-left: 	200px;
+		margin-top: 	-110px;
+
+}
+
+.slider-extra ,.imgbanner{
+		width:          1000px;
+	}
+.slider-extra{
+	    text-align:     center;
+		margin: 		0 auto;
+}
+.slider-panel, .slider-nav, .slider-pre, .slider-next {
+		position: absolute;
+		z-index: 8;
+	}
+
+.slider-panel {
+		position:       absolute;
+	}
+.slider-extra {
+		position:       absolute;
+	}
+.slider-nav {
+		margin-top:    	600px;
+		margin-left:    -1300px;
+		position:       relative;
+	}
+.slider-nav li {
+		font-size:      16px;
+		color: 			#808080;
+		cursor: 		pointer;
+		overflow:       hidden;
+		text-align:     center;
+		display:        inline-block;
+	}
+.slider-nav .slider-item-selected {
+		color:          #000000;
+	}
+.slider-page a{
+		background:     rgba(0, 0, 0, 0.2);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000,endColorstr=#33000000);
+		color:          #fff;
+		text-align:     center;
+		display:        block;
+		font-family:    "simsun";
+		font-size:      22px;
+		width:          28px;
+		height:         62px;
+		line-height:    62px;
+		margin-top:     -31px;
+		position:       absolute;
+		top:            260px;
+	}
+.slider-page a:HOVER {
+		background: 	rgba(0, 0, 0, 0.4);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+	}
+.slider-next {
+		left: 			100%;
+		margin-left:    -28px;
+	}
