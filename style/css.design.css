@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 清除样式 */
+body,dd,dl,form,h1,h2,h3,h4,h5,h6,input,ol,p,pre,td,textarea,th,ul,select,table,tr{margin:0;padding:0;}
+li{list-style:none}
+a{text-decoration:none}
+a:hover{text-decoration:none}
+a{cursor:pointer}
+img{border:none; vertical-align:top;}
+textarea{overflow:auto;resize:none;}
+table{border-collapse:collapse;}
+*{word-break:break-all;}
+input,a,textarea{outline:none;}
+.clear{zoom:1}
+.clear:after{content:"";display:block;clear:both;}
+.fl{float:left}
+.fr{float:right}
+
+.wrap {
+	width:   		 	 1200px;
+	background-color:    #FFFFFF;
+	margin-left: 		 auto;
+	margin-right: 		 auto;
+	}
+.nav_lia{
+   	margin-top: 	     143px;
+	margin-left: 		 -9px;
+	margin-bottom:       66px;
+	cursor: 			 pointer;
+	}
+.nav_lia:hover{
+	background-image:    url(../image/点-点击.png);
+	background-repeat:   no-repeat;
+}
+.nav_li{
+	font-family: 		 黑体;
+	font-size: 			 14px;
+	line-height: 		 30px;
+	letter-spacing: 	 2px;
+	color: 				 #808080;
+    cursor: 			 pointer;
+	}
+a:link{
+	color: 				 #808080;
+}
+a:visited{
+	color: 				 #808080;
+}
+a:hover{
+	color:               #000000;
+}
+a:active{
+	color: 				 #000000;
+}
+
+footer {
+	top: 		 		 922px;
+	position:            absolute;
+}
+
+p{
+	font-size: 			 14px;
+	font-family: 		 黑体;
+	color: 				 #808080;
+	}
+
+span{
+	vertical-align: 	 middle;
+	}
+
+.table{
+	width:            1000px;
+	margin-left: 	     200px;
+    margin-top:      	 -110px;
+	position:            absolute;
+}
+
+.tdimg{
+	width: 				 312px;
+	height: 			 200px;
+	margin-right:        32px;
+	margin-bottom: 		 32px;
+	cursor: 			 pointer;
+}
+
+.tdimg:hover{
+	box-shadow: 		 1px 2px 8px 4px rgba(0, 0, 0, 0.3);
+	
+}
+#tdtop{
+	top: 		 		 50px;
+	position: 			 relative;
+	
+}
+.tdleft{
+	text-align:  		 center;
+	font-size: 			 16px;
+	line-height: 		 30px;
+}
+.imgcontact{
+	margin-left: 		 350px;
+}
