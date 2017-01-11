@@ -1,0 +1,402 @@
+﻿/* CSS Document */
+/* 清除样式 */
+body,dd,dl,form,h1,h2,h3,h4,h5,h6,input,ol,p,pre,td,textarea,th,ul,select{margin:0;padding:0;}
+li{list-style:none}
+a{text-decoration:none}
+a:hover{text-decoration:none}
+a{cursor:pointer}
+img{border:none; vertical-align:top;}
+textarea{overflow:auto;resize:none;}
+table{border-collapse:collapse;}
+*{word-break:break-all;}
+input,a,textarea{outline:none;}
+.clear{zoom:1}
+.clear:after{content:"";display:block;clear:both;}
+.fl{float:left}
+.fr{float:right}
+/* 导航 */
+body{
+	font-family: 		微软雅黑;
+}
+.warp{
+	width: 				1100px;
+	background-color: 	#FBAAAC;
+	margin: 			0 auto;
+}
+.header{
+	width: 				1100px;
+	right: 				0;
+	left: 				0;
+	margin: 			0 auto;
+	z-index: 			99;
+	position: 			fixed;
+}
+.title{
+	width: 				1100px;
+	height: 			100px;
+	background-color: 	rgba(255,255,255,0.90);
+}
+ul{
+	list-style: 		none;
+}
+li{	
+	display: 			inline;
+}
+li:hover{
+	cursor: 			pointer;
+}
+.lilogo{
+	top:                40px;
+	position: 			relative;
+}
+a:link{
+	color: 				#999999;
+}
+a:visited{
+	color: 				#999999;
+}
+a:hover{
+	color: 				#000000;
+}
+.lir{
+	color: 				#999999;
+	font-size: 			14px;
+	float: 				right;
+	margin-left: 		80px;
+	letter-spacing: 	4px;
+	line-height: 		100px;
+}
+
+
+
+/* 侧面介绍联系我*/
+.main{
+	width: 				1100px;
+	top: 				640px;
+	position: 			relative;
+	margin: 			0 auto;
+}
+
+.about{
+	height: 			660px;
+	width: 				420px;
+	display: 			inline-block;
+	
+}
+.asidelf{
+	width: 				420px;
+	height: 			330px;
+	background-color: 	#fffff;
+}
+.titme{
+	top: 				35px;
+	left: 				94px;
+	position: 			relative;
+	letter-spacing: 	4px;
+	font-size: 			12px;
+}
+.mesme{
+	top: 				103px;
+	left: 				94px;
+	position: 			relative;
+	line-height: 		22px;
+	letter-spacing: 	4px;
+	font-size: 			14px;
+}
+.lfme{
+	letter-spacing: 	1px;
+}
+.lflin{
+	top: 				329px;
+	left: 				94px;
+	position: 			relative;
+}
+.lfma{
+	top: 				137px;
+	left: 				298px;
+	position: 			relative;
+}
+
+
+
+/* 右边作品展示 */
+
+.mainright{
+	width: 				680px;
+	float: 				right;
+	display: 			inline;
+}
+.mainright:hover{
+	cursor: 			pointer;
+}
+.flr{
+	width: 				680px;
+	height: 			220px;
+}
+.flrmesmax{
+	width: 				400px;
+	height: 			220px;
+	display: 			inline-block;
+	background-color: 	burlywood;
+}
+.flrmesmin{
+	width: 				280px;
+	height: 			220px;
+	float: 				right;
+	display: 			inline;
+	background-color: 	#facbd0;
+}
+.flrmesmax1{
+	width: 				280px;
+	height: 			220px;
+	display: 			inline-block;
+	background-color: 	#f5cc33;
+}
+.flrmesmin1{
+	width: 				400px;
+	height: 			220px;
+	float: 				right;
+	display: 			inline;
+	background-color: 	aquamarine;
+}
+.flrmesmin2{
+	width: 				280px;
+	height: 			220px;
+	float: 				right;
+	display: 			inline;
+	background-color: 	#f2bd9a;
+}
+.flrtext{
+	color: 				#ffffff;
+	letter-spacing: 	4px;
+}
+.flrtitle{
+	margin-left: 		60px;
+	margin-top: 		35px;
+	font-size: 			12px
+}
+.flrname{
+	margin-left: 		60px;
+	margin-top: 		35px;
+	font-size: 			24px;
+}
+.flrpos{
+	margin-left: 		60px;
+	margin-top: 		70px;
+	font-size: 			12px;
+}
+.flrtext1{
+	color: 				#ffffff;
+	letter-spacing: 	4px;
+	margin-right: 		60px;
+}
+.flrtitle1{
+	margin-top: 		35px;
+	margin-right: 		56px;
+	font-size: 			12px;
+	text-align: 		right;	
+}
+.flrname1{
+	margin-top: 		35px;
+	margin-right: 		56px;
+	font-size: 			24px;
+	text-align: 		right;	
+}
+.flrpos1{
+	margin-top: 		70px;
+	margin-right: 		56px;
+	font-size: 			12px;
+	text-align:  		right;	
+}
+.imgbig{
+	width: 				400px;
+	height: 			220px;
+	overflow: 			hidden;
+}
+.mainimg{
+	width: 				400px;
+	height: 			220px;
+	transition: all 0.8s ease 0s;
+	-webkit-transform: all 0.8s ease 0s;
+	-moz-transform: all 0.8s ease 0s;
+	-o-transform: all 0.8s ease 0s;
+}
+.mainimg:hover{
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+}
+	
+
+
+/* footer */
+.footer{
+	width: 				1100px;
+	height: 			104px;
+}
+
+.footerlin{
+	top: 				40px;
+	position: 			relative;
+	margin-left: 		275px;
+}
+.likesunday{
+	font-size: 			12px;
+	top: 				40px;
+	text-align: 		center;
+	position: 			relative;
+}
+/* 轮播图 */
+
+
+
+*{
+		padding:        0px;
+		margin: 		0px;
+	}
+	a {
+		text-decoration: none;
+	}
+	ul {
+		list-style:     outside none none;
+	}
+
+.banner{	
+	top: 				100px;
+	position: 			relative;
+}
+.slider{
+		width: 	    	1100px;
+		margin-left: 	auto;
+		margin-right: 	auto;
+}
+
+.imgbanner{
+		width:          1100px;
+		height: 		540px;
+	}
+.slider-extra{
+		width:          1100px;
+	    text-align:     center;
+		margin: 		0 auto;
+}
+.slider-panel, .slider-nav, .slider-pre, .slider-next {
+		position:       absolute;
+		z-index:        8;
+	}
+
+.slider-panel {
+		position:       absolute;
+	}
+.slider-extra {
+		position:       absolute;
+	}
+.slider-nav {
+		width: 			100px;
+		margin-top:    	456px;
+		margin-left:    200px;
+		position:       relative;
+	}
+.slider-nav li {
+		font-size:      16px;
+		color: 			#FFFFFF;
+		cursor: 		pointer;
+		overflow:       hidden;
+		text-align:     center;
+		display:        inline-block;
+	}
+.slider-nav .slider-item-selected {
+		color:          #000000;
+	}
+.slider-page a{
+		background:     rgba(0, 0, 0, 0.2);
+		filter:         progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000,endColorstr=#33000000);
+		color:          #fff;
+		text-align:     center;
+		display:        block;
+		font-family:    "simsun";
+		font-size:      20px;
+		width:          24px;
+		height:         50px;
+		line-height:    50px;
+		margin-top:     -25px;
+		position:		absolute;
+		top:            270px;
+	}
+.slider-page a:HOVER {
+		background: 	rgba(0, 0, 0, 0.4);
+		filter:         progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+	}
+.slider-next {
+		left: 			100%;
+		margin-left:    -25px;
+	}
+
+/* 点击弹出效果 */
+.ClickMe {
+	width: 				275px;
+	height: 			220px;
+}
+.goodcover {
+	display: 			none;
+	position: 			fixed;
+	top: 				0%;
+	left: 				0%;
+	width: 				100%;
+	height: 			100%;
+	background-color: 	black;
+	z-index: 			1001;
+	-moz-opacity: 		0.8;
+	opacity: 			0.50;
+	filter: 			alpha(opacity=80);
+}
+.showcenter{
+	margin: 			auto auto;
+	font-family: 		微软雅黑;
+}
+.code {
+	width: 				940px;
+	height: 			420px;
+	background-color: 	#fff;
+	padding: 			30px;
+	margin-left: 		-30px;
+	position: 			absolute;
+	z-index:   			1002;
+	display: 			none;
+}
+.close1 {
+	float: 				right;
+	margin-top: 		-90px;
+	margin-right: 		-60px;
+	position: 			relative;
+}
+.goodtxt {
+	width: 				210px;
+	height: 			80px;
+	background-color: 	#FFFFFF;
+	/* 水平阴影的位置，垂直阴影的位置，模糊的距离，阴影的尺寸，阴影的颜色，为外阴影（inset,outset，） */
+	box-shadow: 		0px 2px 4px 2px rgba(1,12,29,0.1);
+	float: 				right;
+	margin-bottom: 		30px;
+	font-family: 		微软雅黑;
+}
+.txttitle{
+	margin-left: 		20px;
+	margin-top: 		6px;
+	font-size: 			24px;
+}
+.txtname{
+	margin-left: 		20px;
+	margin-top: 		18px;
+	font-size: 			12px;
+}
+.code-img {
+	width: 				700px;
+	height: 			420px;
+	float: 				left;
+}
+.ewmsrc{
+	width: 				700px;
+	height: 			420px;
+}
