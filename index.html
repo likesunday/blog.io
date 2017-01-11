@@ -1,0 +1,513 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="./style/css.css">
+<script type="text/javascript" src="./style/jsbanner.js"></script>
+<script type="text/javascript" src="../style/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var length,
+			currentIndex = 0,
+			interval,
+			hasStarted = false, //是否已经开始轮播
+			t = 3000; //轮播时间间隔
+		length = $('.slider-panel').length;
+		
+		//将除了第一张图片隐藏
+		$('.slider-panel:not(:first)').hide();
+		//将第一个slider-item设为激活状态
+		$('.slider-item:first').addClass('slider-item-selected');
+		//隐藏向前、向后翻按钮
+		$('.slider-page').hide();
+		
+		//鼠标上悬时显示向前、向后翻按钮,停止滑动，鼠标离开时隐藏向前、向后翻按钮，开始滑动
+		$('.slider-panel, .slider-pre, .slider-next').hover(function() {
+			stop();
+			$('.slider-page').show();
+		}, function() {
+			$('.slider-page').hide();
+			start();
+		});
+		
+		$('.slider-item').hover(function(e) {
+			stop();
+			var preIndex = $(".slider-item").filter(".slider-item-selected").index();
+			currentIndex = $(this).index();
+			play(preIndex, currentIndex);
+		}, function() {
+			start();
+		});
+		
+		$('.slider-pre').unbind('click');
+		$('.slider-pre').bind('click', function() {
+			pre();
+		});
+		$('.slider-next').unbind('click');
+		$('.slider-next').bind('click', function() {
+			next();
+		});
+		
+		/**
+		 * 向前翻页
+		 */
+		function pre() {
+			var preIndex = currentIndex;
+			currentIndex = (--currentIndex + length) % length;
+			play(preIndex, currentIndex);
+		}
+		/**
+		 * 向后翻页
+		 */
+		function next() {
+			var preIndex = currentIndex;
+			currentIndex = ++currentIndex % length;
+			play(preIndex, currentIndex);
+		}
+		/**
+		 * 从preIndex页翻到currentIndex页
+		 * preIndex 整数，翻页的起始页
+		 * currentIndex 整数，翻到的那页
+		 */
+		function play(preIndex, currentIndex) {
+			$('.slider-panel').eq(preIndex).fadeOut(500)
+				.parent().children().eq(currentIndex).fadeIn(1000);
+			$('.slider-item').removeClass('slider-item-selected');
+			$('.slider-item').eq(currentIndex).addClass('slider-item-selected');
+		}
+		
+		/**
+		 * 开始轮播
+		 */
+		function start() {
+			if(!hasStarted) {
+				hasStarted = true;
+				interval = setInterval(next, t);
+			}
+		}
+		/**
+		 * 停止轮播
+		 */
+		function stop() {
+			clearInterval(interval);
+			hasStarted = false;
+		}
+		
+		//开始轮播
+		start();
+	});
+</script>
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe').click(function() {
+        $('#code').center();
+        $('#goodcover').show();
+        $('#code').fadeIn();
+    });
+    $('#closebt').click(function() {
+        $('#code').hide();
+        $('#goodcover').hide();
+    });
+	$('#goodcover').click(function() {
+        $('#code').hide();
+        $('#goodcover').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'absolute'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'absolute'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe1').click(function() {
+        $('#code1').center();
+        $('#goodcover1').show();
+        $('#code1').fadeIn();
+    });
+    $('#closebt1').click(function() {
+        $('#code1').hide();
+        $('#goodcover1').hide();
+    });
+	$('#goodcover1').click(function() {
+        $('#code1').hide();
+        $('#goodcover1').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'absolute'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code1').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'absolute'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe2').click(function() {
+        $('#code2').center();
+        $('#goodcover2').show();
+        $('#code2').fadeIn();
+    });
+    $('#closebt2').click(function() {
+        $('#code2').hide();
+        $('#goodcover2').hide();
+    });
+	$('#goodcover2').click(function() {
+        $('#code2').hide();
+        $('#goodcover2').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code2').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+<title>likesunday</title>
+</head>
+<body>
+	<div class="wrap">
+		<div class="header">
+			<ul class="title">
+				<li class="lilogo"><a href="index.html"><img src="images/P.png"></a></li>
+				<li class="lir"><a href="photo/photo.html">咔嚓</a></li>
+				<li class="lir"><a href="design/design.html">乱画</a></li>
+			</ul>
+		</div>
+		<!-- 轮播图 -->
+		<div class="banner">
+		<div class="slider">
+       	    <ul class="slider-main">
+            	<li class="slider-panel">
+                	<a href="photo/photo.html" ><img class="imgbanner" alt="banner1"  src="./images/photo/banner-1-min.jpg"></a>
+            	</li>
+            	<li class="slider-panel">
+                	<a href="design/design.html" ><img class="imgbanner" alt="banner2"  src="./images/design/banner-2-min.jpg"></a>
+            	</li>
+       	 	</ul>
+       	    <div class="slider-extra">
+            	<ul class="slider-nav">
+                	<li class="slider-item">1</li>
+                	<li class="slider-item">2</li>
+            	</ul>
+           	    <div class="slider-page">
+                <a class="slider-pre" href="javascript:;;">&lt;</a>
+                <a class="slider-next" href="javascript:;;">&gt;</a>
+				</div>
+       	 	</div>
+  	 	</div>
+		</div>
+  	 	<!-- 内容区域 -->
+  	 	<div class="main">
+  	 		
+  	 		<!-- 侧面介绍联系我 -->
+  	 		<div class="about">
+  	 			<div class="asidelf">
+  	 				<img class="lflin" src="images/lflin.jpg" title="线">
+  	 				<div class="titme">关于我</div>
+  	 				<div class="mesme">
+  	 							<strong>
+  	 							HI<br>
+  	 							欢迎来到小站<br>
+  	 							我是PIUPIU<br>
+  	 							其实你也可以加我射击狮<br>
+  	 							虽然我就是一个打酱油的<br>
+  	 							</strong>		
+  	 				</div>
+  	 			</div>
+  	 			<div class="asidelf">
+  	 				<img class="lflin" src="images/lflin.jpg" title="线">
+  	 				
+  	 				<div class="titme">联系我</div>
+  	 				<div class="mesme">
+  	 							<strong>
+  	 							MEAIL <span style="font-size: 10px;">&nbsp;&nbsp;</span>:<span class="lfme">hyan.zhu@foxmail.com</span><br>
+  	 							T L  E <span style="font-size: 16px;">&nbsp;&nbsp;&nbsp;</span>:15210405935<br>
+  	 							WECHAT:<br>
+  	 							</strong>
+  	 				</div>
+  	 				<span><img class="lfma" src="images/二维码.png" title="二维码"></span>
+  	 			</div>
+  	 		</div>
+  	 		
+  	 		<!-- 右边作品展示 -->
+  	 		<div class="mainright">
+  	 			<div class="flr">
+  	 				<div class="flrmesmax">
+  	 					<div class="imgbig" type="button" id="ClickMe">
+  	 						<img class="mainimg" src="./images/design/web-b-min.jpg" title="作品展示">
+  	 					</div>
+  	 				</div>
+  	 				<div class="flrmesmin">
+  	 					<div class="flrtext">
+  	 						<div class="flrtitle">
+  	 							乱画
+  	 						</div>
+  	 						<div class="flrname">
+  	 							WEB
+  	 						</div>
+  	 						<div class="flrpos">
+  	 							电商
+  	 						</div>
+  	 					</div>
+  	 				</div>
+  	 			</div>
+  	 			<div class="flr">
+  	 				<div class="flrmesmax1">
+  	 					<div class="flrtext">
+  	 						<div class="flrtitle1">
+  	 							咔嚓
+  	 						</div>
+  	 						<div class="flrname1">
+  	 							SANLITUN
+  	 						</div>
+  	 						<div class="flrpos1">
+  	 							背影
+  	 						</div>
+  	 					</div>
+  	 				</div>
+  	 				<div class="flrmesmin1">
+  	 					<div class="imgbig" type="button" id="ClickMe1">
+  	 					<img class="mainimg" src="./images/photo/三里屯-b-min.jpg" title="作品展示">
+  	 					</div>
+  	 				</div>
+  	 			</div>
+  	 			<div class="flr">
+  	 				<div class="flrmesmax">
+  	 					<div class="imgbig" type="button" id="ClickMe2">
+  	 					<img class="mainimg" src="./images/design/icon-1-b-min.jpg" title="作品展示">
+  	 					</div>
+  	 				</div>
+  	 				<div class="flrmesmin2">
+  	 					<div class="flrtext">
+  	 						<div class="flrtitle">
+  	 							乱画
+  	 						</div>
+  	 						<div class="flrname">
+  	 							ICON
+  	 						</div>
+  	 						<div class="flrpos">
+  	 							写实
+  	 						</div>
+  	 					</div>
+  	 				</div>
+  	 			</div>
+  	 		</div>
+  	 		
+ 		<!--box img--> 
+ 		<div class="showcenter">
+			<div id="code" class="code">
+				<div class="code-img"> 
+					<img id="ewmsrc" class="ewmsrc"  src="./images/design/web-min.jpg">
+				</div>
+				<div class="close1">
+					<a href="javascript:void(0)" id="closebt">
+						<img src="./images/close.png">
+					</a>
+				</div>
+				<div class="goodtxt">
+					<div class="txttitle">WEB</div>
+					<div class="txtname">电商首页</div>
+				</div>
+				<div class="goodtxt">
+					<div class="txttitle">COLOR</div>
+					<div class="txtname"><img src="./images/design/web-color-min.jpg"></div>
+				</div>
+				<div class="goodtxt">
+					<div class="txttitle">DESIGN</div>
+					<div class="txtname">比较喜欢简约风格[练习]</div>
+				</div>
+			</div>
+			<div id="goodcover" class="goodcover"></div>
+ 	 	</div> 
+ 	 		
+ 	 	<!--box1 img--> 
+ 		<div class="showcenter">
+			<div id="code1" class="code">
+				<div class="code-img"> 
+					<img id="ewmsrc1" class="ewmsrc"  src="./images/photo/三里屯-min.jpg">
+				</div>
+				<div class="close1">
+					<a href="javascript:void(0)" id="closebt1">
+						<img src="./images/close.png">
+					</a>
+				</div>
+				<div class="goodtxt">
+					<div class="txttitle">咔嚓</div>
+					<div class="txtname">三里屯</div>
+				</div>
+			</div>
+			<div id="goodcover1" class="goodcover"></div>
+ 	 	</div>	
+ 	 	
+ 	 	<!--box2 img--> 
+ 		<div class="showcenter">
+			<div id="code2" class="code">
+				<div class="code-img"> 
+					<img id="ewmsrc2" class="ewmsrc"  src="./images/design/icon-1-min.jpg">
+				</div>
+				<div class="close1">
+					<a href="javascript:void(0)" id="closebt2">
+						<img src="./images/close.png">
+					</a>
+				</div>
+				<div class="goodtxt">
+					<div class="txttitle">ICON</div>
+					<div class="txtname">写实</div>
+				</div>
+				<div class="goodtxt">
+					<div class="txttitle">COLOR</div>
+					<div class="txtname"><img src="./images/design/icon-1-color-min.jpg"></div>
+				</div>
+				<div class="goodtxt">
+					<div class="txttitle">DESIGN</div>
+					<div class="txtname">材质 光影</div>
+				</div>
+			</div>
+			<div id="goodcover2" class="goodcover"></div>
+ 	 	</div>
+  	 		<!-- 底部 -->
+  	 		<div class="footer">
+  	 			<div class="footerlin">
+  	 				<img src="images/footerlin.png">
+  	 			</div>
+  	 			<div class="likesunday">
+  	 				© likesunday
+  	 			</div>
+  	 		</div>
+  	 	</div>
+	</div>
+</body>
+</html>
