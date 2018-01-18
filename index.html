@@ -1,0 +1,1128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="./style/css.css">
+<script type="text/javascript" src="./style/jsbanner.js"></script>
+<script type="text/javascript" src="../style/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var length,
+			currentIndex = 0,
+			interval,
+			hasStarted = false, //是否已经开始轮播
+			t = 3000; //轮播时间间隔
+		length = $('.slider-panel').length;
+		
+		//将除了第一张图片隐藏
+		$('.slider-panel:not(:first)').hide();
+		//将第一个slider-item设为激活状态
+		$('.slider-item:first').addClass('slider-item-selected');
+		//隐藏向前、向后翻按钮
+		$('.slider-page').hide();
+		
+		//鼠标上悬时显示向前、向后翻按钮,停止滑动，鼠标离开时隐藏向前、向后翻按钮，开始滑动
+		$('.slider-panel, .slider-pre, .slider-next').hover(function() {
+			stop();
+			$('.slider-page').show();
+		}, function() {
+			$('.slider-page').hide();
+			start();
+		});
+		
+		$('.slider-item').hover(function(e) {
+			stop();
+			var preIndex = $(".slider-item").filter(".slider-item-selected").index();
+			currentIndex = $(this).index();
+			play(preIndex, currentIndex);
+		}, function() {
+			start();
+		});
+		
+		$('.slider-pre').unbind('click');
+		$('.slider-pre').bind('click', function() {
+			pre();
+		});
+		$('.slider-next').unbind('click');
+		$('.slider-next').bind('click', function() {
+			next();
+		});
+		
+		/**
+		 * 向前翻页
+		 */
+		function pre() {
+			var preIndex = currentIndex;
+			currentIndex = (--currentIndex + length) % length;
+			play(preIndex, currentIndex);
+		}
+		/**
+		 * 向后翻页
+		 */
+		function next() {
+			var preIndex = currentIndex;
+			currentIndex = ++currentIndex % length;
+			play(preIndex, currentIndex);
+		}
+		/**
+		 * 从preIndex页翻到currentIndex页
+		 * preIndex 整数，翻页的起始页
+		 * currentIndex 整数，翻到的那页
+		 */
+		function play(preIndex, currentIndex) {
+			$('.slider-panel').eq(preIndex).fadeOut(500)
+				.parent().children().eq(currentIndex).fadeIn(1000);
+			$('.slider-item').removeClass('slider-item-selected');
+			$('.slider-item').eq(currentIndex).addClass('slider-item-selected');
+		}
+		
+		/**
+		 * 开始轮播
+		 */
+		function start() {
+			if(!hasStarted) {
+				hasStarted = true;
+				interval = setInterval(next, t);
+			}
+		}
+		/**
+		 * 停止轮播
+		 */
+		function stop() {
+			clearInterval(interval);
+			hasStarted = false;
+		}
+		
+		//开始轮播
+		start();
+	});
+</script>
+
+<!-- ui js-->
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe1').click(function() {
+        $('#code1').center();
+        $('#goodcover1').show();
+        $('#code1').fadeIn();
+    });
+    $('#closebt1').click(function() {
+        $('#code1').hide();
+        $('#goodcover1').hide();
+    });
+	$('#goodcover1').click(function() {
+        $('#code1').hide();
+        $('#goodcover1').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'absolute'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code1').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe2').click(function() {
+        $('#code2').center();
+        $('#goodcover2').show();
+        $('#code2').fadeIn();
+    });
+    $('#closebt2').click(function() {
+        $('#code2').hide();
+        $('#goodcover2').hide();
+    });
+	$('#goodcover2').click(function() {
+        $('#code2').hide();
+        $('#goodcover2').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'absolute'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code2').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'absolute'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe3').click(function() {
+        $('#code3').center();
+        $('#goodcover3').show();
+        $('#code3').fadeIn();
+    });
+    $('#closebt3').click(function() {
+        $('#code3').hide();
+        $('#goodcover3').hide();
+    });
+	$('#goodcover3').click(function() {
+        $('#code3').hide();
+        $('#goodcover3').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code3').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe4').click(function() {
+        $('#code4').center();
+        $('#goodcover4').show();
+        $('#code4').fadeIn();
+    });
+    $('#closebt4').click(function() {
+        $('#code4').hide();
+        $('#goodcover4').hide();
+    });
+	$('#goodcover4').click(function() {
+        $('#code4').hide();
+        $('#goodcover4').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code4').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+
+<!-- graphic js-->
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe21').click(function() {
+        $('#code21').center();
+        $('#goodcover21').show();
+        $('#code21').fadeIn();
+    });
+    $('#closebt21').click(function() {
+        $('#code21').hide();
+        $('#goodcover21').hide();
+    });
+	$('#goodcover21').click(function() {
+        $('#code21').hide();
+        $('#goodcover21').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code21').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe22').click(function() {
+        $('#code22').center();
+        $('#goodcover22').show();
+        $('#code22').fadeIn();
+    });
+    $('#closebt22').click(function() {
+        $('#code22').hide();
+        $('#goodcover22').hide();
+    });
+	$('#goodcover22').click(function() {
+        $('#code22').hide();
+        $('#goodcover22').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code22').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe23').click(function() {
+        $('#code23').center();
+        $('#goodcover23').show();
+        $('#code23').fadeIn();
+    });
+    $('#closebt23').click(function() {
+        $('#code23').hide();
+        $('#goodcover23').hide();
+    });
+	$('#goodcover23').click(function() {
+        $('#code23').hide();
+        $('#goodcover23').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code23').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe24').click(function() {
+        $('#code24').center();
+        $('#goodcover24').show();
+        $('#code24').fadeIn();
+    });
+    $('#closebt24').click(function() {
+        $('#code24').hide();
+        $('#goodcover24').hide();
+    });
+	$('#goodcover24').click(function() {
+        $('#code24').hide();
+        $('#goodcover24').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code24').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+
+<!-- photo js-->
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe31').click(function() {
+        $('#code31').center();
+        $('#goodcover31').show();
+        $('#code31').fadeIn();
+    });
+    $('#closebt31').click(function() {
+        $('#code31').hide();
+        $('#goodcover31').hide();
+    });
+	$('#goodcover31').click(function() {
+        $('#code31').hide();
+        $('#goodcover31').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code31').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe32').click(function() {
+        $('#code32').center();
+        $('#goodcover32').show();
+        $('#code32').fadeIn();
+    });
+    $('#closebt32').click(function() {
+        $('#code32').hide();
+        $('#goodcover32').hide();
+    });
+	$('#goodcover32').click(function() {
+        $('#code32').hide();
+        $('#goodcover32').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code32').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe33').click(function() {
+        $('#code33').center();
+        $('#goodcover33').show();
+        $('#code33').fadeIn();
+    });
+    $('#closebt33').click(function() {
+        $('#code33').hide();
+        $('#goodcover33').hide();
+    });
+	$('#goodcover33').click(function() {
+        $('#code33').hide();
+        $('#goodcover33').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code33').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'fixed'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+
+
+<link rel="shortcut icon" href="img/p.ico" />
+
+<title>likesunday</title>
+</head>
+<body>
+	<div class="wrap">
+		<div class="header">
+			<ul class="title">
+				<li class="lilogo"><a href="index.html"><img src="img/logo.png"></a></li>
+				<li class="lir"><a href="about.html">关于我</a></li>
+			</ul>
+		</div>
+		<!-- 轮播图 -->
+		<div class="banner">
+		<div class="slider">
+       	    <ul class="slider-main">
+            	<li class="slider-panel">
+                	<img class="imgbanner" alt="banner1"  src="img/banner-1.jpg">
+            	</li>
+            	<li class="slider-panel">
+                	<img class="imgbanner" alt="banner2"  src="img/banner-2.jpg">
+            	</li>
+            	<li class="slider-panel">
+                	<img class="imgbanner" alt="banner2"  src="img/banner-3.jpg">
+            	</li>
+       	 	</ul>
+       	    <div class="slider-extra">
+            	<ul class="slider-nav">
+                	<li class="slider-item">1</li>
+                	<li class="slider-item">2</li>
+                	<li class="slider-item">3</li>
+            	</ul>
+           	    <div class="slider-page">
+                <a class="slider-pre" href="javascript:;;">&lt;</a>
+                <a class="slider-next" href="javascript:;;">&gt;</a>
+				</div>
+       	 	</div>
+  	 	</div>
+		</div>
+  	 	<!-- 内容区域 -->
+  	 	<div  class="me">
+ 	 		 <div class="mepos">
+ 	 		 	<img class="meimg" src="img/mes.jpg">
+ 	 		 </div>
+  	 	</div>
+  	 	
+  	 	
+  	 	
+  	 	<!-- 内容区域 -->
+  	 	
+  	 	<div class="main">
+  	 	    <!-- UI -->
+  	 		<div class="ui">
+  	 			<div class="uititle">
+  	 		    	<img class="uititileimg" src="img/ui/titile.jpg">
+  	 	    	</div>
+ 	 	       
+ 	 			<div class="uibox">
+ 	 				<div class="hover">
+  	 				   <ul class="ui_1">
+  	 					  	 <li type="button" id="ClickMe1">
+  	 					     		<img class="ui_1_images" src="img/ui/1.jpg" title="作品展示">
+  	 					   	 </li>
+  	 					   	 <li>
+  	 					     		<img class="ui_2_images" src="img/ui/2.jpg" title="作品展示" type="button" id="ClickMe2">
+  	 					     		<img class="ui_0_images" src="img/ui/0.jpg" title="作品展示">
+   	 					   	 </li>
+   	 					   	 <li>
+   	 					   	 		<img class="ui_3_images" src="img/ui/3.jpg" title="作品展示" type="button" id="ClickMe3">
+   	 					   	 		<img class="ui_4_images" src="img/ui/4.jpg" title="作品展示" type="button" id="ClickMe4">
+   	 					   	 </li>
+  	 				  </ul>
+					</div>
+				</div>
+  	 		</div>
+ 	 		<!--ui box img--> 
+  	 			   <!--ui _1_ box img-->	
+  	 		<div class="showcenter">
+  	 		    <div id="code1" class="code">     
+				<div class="code-img"> 
+					<img id="ewmsrc1" class="ewmsrc"  src="img/ui/1.1.jpg">
+				</div>
+				<div class="close1">
+					<a href="javascript:void(0)" id="closebt1">
+						<img src="./images/close.png">
+					</a>
+				</div>
+				</div>
+			    <div id="goodcover1" class="goodcover"></div>
+ 	 	    </div> 
+ 	 	    	   <!--ui _2_ box img-->	
+  	 		<div class="showcenter">
+  	 		    <div id="code2" class="code">     
+				<div class="code-img"> 
+					<img id="ewmsrc2" class="ewmsrc"  src="img/ui/2.2.jpg">
+				</div>
+				<div class="close1">
+					<a href="javascript:void(0)" id="closebt2">
+						<img src="./images/close.png">
+					</a>
+				</div>
+				</div>
+			    <div id="goodcover2" class="goodcover"></div>
+ 	 	    </div> 
+ 			  	   <!--ui _3_ box img-->	
+  	 			<div class="showcenter">
+  	 		    <div id="code3" class="code">     
+				<div class="code-img"> 
+					<img id="ewmsrc3" class="ewmsrc"  src="img/ui/3.3.jpg">
+				</div>
+				<div class="close1">
+					<a href="javascript:void(0)" id="closebt3">
+						<img src="./images/close.png">
+					</a>
+				</div>
+				</div>
+			    <div id="goodcover3" class="goodcover"></div>
+ 	 	    </div>
+ 	 	    	  	   <!--ui _4_ box img-->	
+  	 			<div class="showcenter">
+  	 		    <div id="code4" class="code">     
+				<div class="code-img"> 
+					<img id="ewmsrc4" class="ewmsrc"  src="img/ui/4.4.jpg">
+				</div>
+				<div class="close1">
+					<a href="javascript:void(0)" id="closebt4">
+						<img src="./images/close.png">
+					</a>
+				</div>
+				</div>
+			    <div id="goodcover4" class="goodcover"></div>
+ 	 	    </div>
+ 		
+ 	 		
+ 	 		
+ 	 		<!-- graphic-->
+ 	 		<div class="ui">
+ 	 			<div class="uititle">
+ 	 				<img class="uititileimg" src="img/graphic/titile.jpg">
+ 	 			</div>
+ 	 			<div class="uibox">
+ 	 				<div class="hover">
+ 	 					<div class="ui_1">
+ 	 						<li class="graphic">
+  	 					     	<img class="graphic_1_images" src="img/graphic/1.jpg" title="作品展示" type="button" id="ClickMe21">
+  	 					     	
+  	 						</li>
+  	 						<li>
+  	 					     	<img class="graphic_2_images" src="img/graphic/2.jpg" title="作品展示" type="button" id="ClickMe22">
+  	 					     	<img class="graphic_3_images" src="img/graphic/3.jpg" title="作品展示" type="button" id="ClickMe23">
+  	 					     	<img class="graphic_4_images" src="img/graphic/4.jpg" title="作品展示" type="button" id="ClickMe24">
+   	 						</li>
+   	 						<li>
+   	 							<img class="graphic_0_images" src="img/graphic/0.jpg" title="作品展示">
+   	 						</li>	
+ 	 					</div>
+ 	 				</div>
+				</div>
+ 	 		</div>
+ 		
+ 	 		<!--graphicbox img--> 	
+  	 			   <!--graphic _1_ box img-->	
+  	 		<div class="showcenter">
+  	 		    <div id="code21" class="code">     
+				<div class="code-img"> 
+					<img id="ewmsrc21" class="ewmsrc"  src="img/graphic/1.1.jpg">
+				</div>
+				<div class="close1">
+					<a href="javascript:void(0)" id="closebt21">
+						<img src="./images/close.png">
+					</a>
+				</div>
+				</div>
+			    <div id="goodcover21" class="goodcover"></div>
+ 	 	    </div> 
+ 	 	    	   <!--ui _2_ box img-->	
+  	 		<div class="showcenter">
+  	 		    <div id="code22" class="code">     
+				<div class="code-img"> 
+					<img id="ewmsrc22" class="ewmsrc"  src="img/graphic/2.2.jpg">
+				</div>
+				<div class="close1">
+					<a href="javascript:void(0)" id="closebt22">
+						<img src="./images/close.png">
+					</a>
+				</div>
+				</div>
+			    <div id="goodcover22" class="goodcover"></div>
+ 	 	    </div> 
+ 			  	   <!--ui _3_ box img-->	
+  	 			<div class="showcenter">
+  	 		    <div id="code23" class="code">     
+				<div class="code-img"> 
+					<img id="ewmsrc23" class="ewmsrc"  src="img/graphic/3.3.jpg">
+				</div>
+				<div class="close1">
+					<a href="javascript:void(0)" id="closebt23">
+						<img src="./images/close.png">
+					</a>
+				</div>
+
+				</div>
+			    <div id="goodcover23" class="goodcover"></div>
+ 	 	    </div>
+ 	 	    	  	   <!--ui _4_ box img-->	
+  	 			<div class="showcenter">
+  	 		    <div id="code24" class="code">     
+				<div class="code-img"> 
+					<img id="ewmsrc24" class="ewmsrc"  src="img/graphic/4.4.jpg">
+				</div>
+				<div class="close1">
+					<a href="javascript:void(0)" id="closebt24">
+						<img src="./images/close.png">
+					</a>
+				</div>
+				</div>
+			    <div id="goodcover24" class="goodcover"></div>
+ 	 	    </div>
+ 		
+ 	 		
+  	 		<!-- photo-->
+ 	 		<div class="ui">
+ 	 			<div class="uititle">
+ 	 				<img class="uititileimg" src="img/photo/titile.jpg">
+ 	 			</div>
+ 	 			<div class="uibox">
+ 	 				<div class="hover">
+ 	 					<div class="ui_1">
+ 	 						<li class="photo">
+  	 					     	<img class="photo_1_images" src="img/photo/1.jpg" title="作品展示" type="button" id="ClickMe31">
+  	 					     	
+  	 						</li>
+  	 						<li>
+  	 					     	<img class="photo_2_images" src="img/photo/2.jpg" title="作品展示" type="button" id="ClickMe32">
+   	 						</li>
+   	 						<li>
+   	 							<img class="photo_3_images" src="img/photo/3.jpg" title="作品展示" type="button" id="ClickMe33">
+   	 							<img class="photo_0_images" src="img/photo/0.jpg" title="作品展示">
+   	 						</li>	
+ 	 					</div>
+ 	 				</div>
+				</div>
+ 	 		</div>
+            
+            <!--graphic _1_ box img-->
+            	
+  	 		<div class="showcenter">
+  	 		    <div id="code31" class="code">     
+				<div class="code-img"> 
+					<img id="ewmsrc31" class="ewmsrc"  src="img/photo/1.1.jpg">
+				</div>
+				<div class="close1">
+					<a href="javascript:void(0)" id="closebt31">
+						<img src="./images/close.png">
+					</a>
+				</div>
+				</div>
+			    <div id="goodcover31" class="goodcover"></div>
+ 	 	    </div> 
+ 	 	    	   <!--ui _2_ box img-->	
+  	 		<div class="showcenter">
+  	 		    <div id="code32" class="code">     
+				<div class="code-img"> 
+					<img id="ewmsrc32" class="ewmsrc"  src="img/photo/2.2.jpg">
+				</div>
+				<div class="close1">
+					<a href="javascript:void(0)" id="closebt32">
+						<img src="./images/close.png">
+					</a>
+				</div>
+				</div>
+			    <div id="goodcover32" class="goodcover"></div>
+ 	 	    </div> 
+ 			  	   <!--ui _3_ box img-->	
+  	 			<div class="showcenter">
+  	 		    <div id="code33" class="code">     
+				<div class="code-img"> 
+					<img id="ewmsrc33" class="ewmsrc"  src="img/photo/3.3.jpg">
+				</div>
+				<div class="close1">
+					<a href="javascript:void(0)" id="closebt33">
+						<img src="./images/close.png">
+					</a>
+				</div>
+				</div>
+			    <div id="goodcover33" class="goodcover"></div>
+ 	 	    </div>
+  	 	</div>
+  	 	
+  	 	<div class="foot">
+  	 		<img class="footimg" src="img/foot.jpg">
+  	 	</div>
+	</div>
+</body>
+</html>
