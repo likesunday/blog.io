@@ -1,0 +1,365 @@
+﻿/* CSS Document */
+/* 清除样式 */
+body,dd,dl,form,h1,h2,h3,h4,h5,h6,input,ol,p,pre,td,textarea,th,ul,li,select{margin:0;padding:0;}
+li{list-style:none}
+a{text-decoration:none}
+a:hover{text-decoration:none}
+a{cursor:pointer}
+img{border:none; vertical-align:top;}
+textarea{overflow:auto;resize:none;}
+table{border-collapse:collapse;}
+*{word-break:break-all;}
+input,a,textarea{outline:none;}
+.clear{zoom:1}
+.clear:after{content:"";display:block;clear:both;}
+.fl{float:left}
+.fr{float:right}
+/* 导航 */
+body{
+	font-family: 		PingFang SC,Lantinghei SC,Helvetica Neue,Helvetica,Arial,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,STHeitiSC-Light,simsun,\\5B8B\4F53,WenQuanYi Zen Hei,WenQuanYi Micro Hei,"sans-serif";
+}
+.warp{
+	width: 				100%;
+	background-color: 	#FBAAAC;
+	margin: 			0 auto;
+}
+.header{
+	width: 				100%;
+	right: 				0;
+	left: 				0;
+	margin: 			0 auto; 
+	z-index: 			99;
+}
+.title{
+	width: 				100%;
+	background-color: 	rgba(255,255,255,0.80);
+}
+ul{
+	list-style: 		none;
+}
+li{	
+	display: 			inline;
+}
+li:hover{
+	cursor: 			pointer;
+}
+.lilogo{
+	margin-top:         0.9%;
+	margin-bottom:      0.9%;
+	margin-left:        2.6%;
+	display:            inline-block;
+}
+a:link{
+	color: 				#999999;
+}
+a:visited{
+	color: 				#999999;
+}
+a:hover{
+	color: 				#000000;
+}
+.lir{
+	color: 				#999999;
+	font-size: 			1em;
+	float: 				right;
+	margin-top:         1.2%;
+	margin-right: 		2.6%;
+}
+
+
+/* 个人资料 */
+.me{
+	display:            block;
+	position:           relative;
+	width:              100%;
+	margin-top:         38%;
+}
+.meimg{
+	width:              100%;
+}
+
+
+/* 作品展示 */
+
+
+.main{
+	width: 				100%;
+	position: 			relative;
+}
+.hover:hover{
+	cursor:             pointer;
+}
+.uititle{
+	width:              100%;
+}
+.uititileimg{
+	width:   			100%;
+}
+.ui_1{
+	width: 				100%;
+}
+.ui_1_images{
+	width:              47.6%;
+	margin-right:       0.5%;
+	float:              left;
+}
+.ui_2_images{
+	width:              25.7%;
+	margin-right: 		0.5%;
+	margin-bottom:      0.5%;
+	float: 				left;
+}
+.ui_0_images{
+	width:              25.7%;
+	margin-right: 		0.5%;
+	float: 				left;
+}
+.ui_3_images{
+	width:              25.7%;
+	margin-bottom:      0.5%;
+	
+}
+.ui_4_images{
+	width:              25.7%;	
+}
+
+/* 平面设计 */
+
+.graphic{
+	
+}
+.graphic_1_images{
+	width:              47.6%;
+	margin-right:       0.5%;
+	margin-bottom: 		0.5%;
+	float: 				left;
+}
+
+.graphic_0_images{
+	width: 				47.6%;
+	margin-right:       0.5%;
+}
+.graphic_2_images{
+	width: 				51.9%;
+	margin-bottom: 		0.5%;
+	float: 				right;
+}
+.graphic_3_images{
+	width: 				25.7%;
+	margin-left: 		0.50%;
+	float: 				right;
+}
+.graphic_4_images{
+	width: 				25.7%;
+	float: 				right;
+}
+
+/* 摄影 */
+
+.photo_1_images{
+	width: 				47.6%;
+	margin-right: 		0.5%;
+	float: 				left;
+}
+.photo_2_images{
+	width: 				25.7%;
+	margin-right: 		0.5%;
+	float: 				left;
+}
+.photo_3_images{
+	width: 				25.7%;
+	margin-bottom: 		0.5%;
+}
+.photo_0_images{
+	width: 				25.7%;
+}
+
+
+/* foot*/
+
+.foot{
+	width: 				100%;
+}
+.footimg{
+	width: 			    100%;
+}
+
+/* 轮播图 */
+
+
+*{
+		padding:        0px;
+		margin: 		0px;
+	}
+	a {
+		text-decoration: none;
+	}
+	ul {
+		list-style:     outside none none;
+	}
+
+.banner{	
+	   display:         block;
+	   width:           100%;
+}
+.slider{
+		width: 	    	100%;
+		margin-left: 	auto;
+		margin-right: 	auto;
+}
+
+.slider-panel{
+	    width:          100%;
+}
+.imgbanner{
+		width:          100%;
+	}
+.slider-extra{
+		width:          100%;
+	    text-align:     center;
+		margin: 		0 auto;
+}
+
+.slider-main{
+	    position:       relative;
+	    top:            -2.6%;
+}
+.slider-panel, .slider-nav, .slider-pre, .slider-next {
+		position:       absolute;
+		z-index:        8;
+	}
+
+.slider-panel {
+		position:       absolute;
+	}
+.slider-extra {
+		position:       absolute;
+	}
+.slider-nav {
+		width: 			10%;
+		margin-top:    	36%;
+		margin-left:    1.8%;
+		position:       relative;
+	}
+.slider-nav li {
+		font-size:      1.5em;
+		color: 			#999999;
+		cursor: 		pointer;
+		overflow:       hidden;
+		text-align:     center;
+		display:        inline-block;
+		padding-left: 	14%;
+	}
+.slider-nav .slider-item-selected {
+		color:          #000000;
+	}
+.slider-page a{
+		background:     rgba(0, 0, 0, 0.1);
+		filter:         progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000,endColorstr=#33000000);
+		color:          #fff;
+		text-align:     center;
+		display:        block;
+		font-family:    "simsun";
+		font-size:      1.5em;
+		width:          24px;
+		height:         50px;
+		line-height:    50px;
+		margin-top:     -25px;
+		position:		absolute;
+		top:            50%;
+	}
+.slider-page a:HOVER {
+		background: 	rgba(0, 0, 0, 0.2);
+		filter:         progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+	}
+.slider-next {
+		left: 			100%;
+		margin-left:    -3%;
+	}
+.slider-pre{
+		margin-left:    3%;
+	}
+
+
+/* 点击弹出效果 */
+
+.ClickMe1 {
+	width: 				275px;
+	height: 			220px;
+}
+.goodcover {
+	display: 			none;
+	position: 			fixed;
+	top: 				0%;
+	left: 				0%;
+	width: 				100%;
+	height: 			100%;
+	background-color: 	black;
+	z-index: 			1001;
+	-moz-opacity: 		0.8;
+	opacity: 			0.50;
+	filter: 			alpha(opacity=80);
+}
+.showcenter{
+	margin: 			auto auto;
+	font-family: 		微软雅黑;
+}
+.code {
+	width: 				80%;
+	background-color: 	#fff;
+	text-align: 		center;
+	z-index:   			1002;
+	display: 			none;
+}
+.code-img{
+	width: 				100%;
+	float: 				left;
+}
+.ewmsrc{
+	width: 				100%;
+}
+.close1 {
+	float: 				right;
+	margin-top: 		-3%;
+	margin-right: 		-3%;
+	position: 			relative;
+}
+.goodtxt {
+	width: 				210px;
+	height: 			80px;
+	background-color: 	#FFFFFF;
+	/* 水平阴影的位置，垂直阴影的位置，模糊的距离，阴影的尺寸，阴影的颜色，为外阴影（inset,outset，） */
+	box-shadow: 		0px 2px 4px 2px rgba(1,12,29,0.1);
+	float: 				right;
+	margin-bottom: 		30px;
+	font-family: 		微软雅黑;
+}
+.txttitle{
+	margin-left: 		20px;
+	margin-top: 		6px;
+	font-size: 			24px;
+}
+.txtname{
+	margin-left: 		20px;
+	margin-top: 		18px;
+	font-size: 			12px;
+}
+
+
+
+
+
+/* 关于我 */
+
+.aboutcolor{
+	text-align: 		center;
+	margin-top: 		15%;
+}
+
+.aboutitle{
+	font-size: 			2em;
+}
+.aboutmes{
+	font-size: 			1.1em;
+}
+
